@@ -1,0 +1,30 @@
+﻿<Window x:Class="LLMChat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LLM Chat" Height="600" Width="800">
+    <Grid Margin="10">
+        <TabControl>
+            <!-- チャット画面 -->
+            <TabItem Header="チャット">
+                <StackPanel Margin="10">
+                    <TextBox x:Name="InputTextBox" Height="30" Margin="0,0,0,10" />
+                    <Button x:Name="SendButton" Content="送信" Height="30" Click="SendButton_Click" />
+                    <TextBlock x:Name="ResponseTextBox" TextWrapping="Wrap" Margin="0,10,0,0" />
+                </StackPanel>
+            </TabItem>
+
+            <!-- 履歴表示 -->
+            <TabItem Header="履歴">
+                <DataGrid x:Name="ChatDataGrid"
+                          AutoGenerateColumns="False"
+                          Margin="10">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="日時" Binding="{Binding Timestamp}" Width="150"/>
+                        <DataGridTextColumn Header="ユーザー" Binding="{Binding UserMessage}" Width="*"/>
+                        <DataGridTextColumn Header="応答" Binding="{Binding BotResponse}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
