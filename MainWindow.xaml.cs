@@ -3,6 +3,7 @@ using Microsoft.Data.Sqlite;
 using System.IO;
 using Mscc.GenerativeAI;
 
+
 namespace LLMChat;
 
 /// <summary>
@@ -44,6 +45,8 @@ public partial class MainWindow : Window
                 );";
             command.ExecuteNonQuery();
         }
+
+        LoadConversationHistory();
 
     }
 

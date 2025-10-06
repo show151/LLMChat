@@ -31,7 +31,6 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="日時" Binding="{Binding Timestamp}" Width="150"/>
                         <DataGridTextColumn Header="ユーザー" Binding="{Binding UserMessage}" Width="*"/>
-                        <DataGridTextColumn Header="応答" Binding="{Binding BotResponse}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
