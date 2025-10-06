@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Markdown.Xaml" Version="1.0.0" />
+    <PackageReference Include="MdXaml" Version="1.27.0" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.9" />
     <PackageReference Include="Mscc.GenerativeAI" Version="2.8.15" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />

@@ -80,6 +80,8 @@ public partial class MainWindow : Window
         ChatDataGrid.ItemsSource = entries;
     }
 
+    public string MarkdownText { get; set; }
+
     private async void SendButton_Click(object sender, RoutedEventArgs e)
     {
         try
@@ -90,7 +92,8 @@ public partial class MainWindow : Window
 
             // Here you would typically call your LLM API to get a response
             string botResponse = response.Text;
-            ResponseTextBox.Text = botResponse;
+            MarkdownText = botResponse;
+            MarkdownViewer.Markdown = MarkdownText;
 
             // Clear the input box after sending the message
             InputTextBox.Clear();
