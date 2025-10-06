@@ -1,10 +1,7 @@
 ﻿using System.Windows;
 using Microsoft.Data.Sqlite;
 using System.IO;
-using System.Collections.Generic;
 using Mscc.GenerativeAI;
-using System.Threading.Tasks;
-using System.Runtime.CompilerServices;
 
 namespace LLMChat;
 
@@ -27,7 +24,7 @@ public partial class MainWindow : Window
         // Initialize the generative model
         googleAI = new GoogleAI();
         model = googleAI.GenerativeModel(
-            Model.Gemini25Pro
+            Model.Gemini25Flash
         );
 
         // Initialize SQLite database
@@ -89,21 +86,16 @@ public partial class MainWindow : Window
         {
             // Get the user's message from the input box
             string userMessage = InputTextBox.Text;
-            Console.WriteLine($"[送信] ユーザー入力: {userMessage}");
-
-            Console.WriteLine("[Gemini] API呼び出し開始...");
             var response = await model.GenerateContent(userMessage);
 
             // Here you would typically call your LLM API to get a response
             string botResponse = response.Text;
-            Console.WriteLine($"[Gemini] 応答取得: {botResponse}");
             ResponseTextBox.Text = botResponse;
 
             // Clear the input box after sending the message
             InputTextBox.Clear();
 
             // Save the conversation to the SQLite database
-            Console.WriteLine("[DB] 会話履歴を保存中...");
             using var connection = new SqliteConnection("Data Source=chat.db");
             connection.Open();
 
